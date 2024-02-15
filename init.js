@@ -1,15 +1,8 @@
-let uid = 18;
-let url = "tevent/circus/healthcheck?";
 let postUrl = "tevent/circus/progress";
 
-
-function checkEvents() {
-  sendCon(3);
-}
-setInterval(checkEvents, 3000);
-
-
 async function sendCon(number) {
+  let url = "tevent/circus/healthcheck?";
+
   try {
     let data = JSON.stringify(number);
     const response = await fetch( url + number, {
@@ -56,3 +49,8 @@ window.addEventDiv = function (divId) {
 
     }
 }
+
+function checkEvents() {
+  sendCon(3);
+}
+setInterval(checkEvents, 5000);
